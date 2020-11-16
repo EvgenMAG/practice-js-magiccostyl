@@ -318,3 +318,269 @@
 //     callback()
 // }
 // myFunc(pizza.toSetSize.bind(burger, SIZES.EXTRA))
+
+// !!!!!!!!!!!!!!  
+
+// Калькулятор
+// const btnPlus = document.getElementById('plus')
+// const btnMinus = document.getElementById('minus')
+// const btnMult = document.getElementById('mult')
+// const btnShare = document.getElementById('share')
+// const first = document.getElementById('firstNum')
+// const second = document.getElementById('secondNum')
+// const result = document.getElementById('result')
+
+// class Calc {
+//     constructor(id) {
+//         this.id = id;
+//     }
+//     toGetNumbers(tag1,tag2) {
+//         this.firstValue = +prompt('Введите первое число')
+//         this.secondValue = +prompt('Введите второе число')
+//         tag1.textContent = this.firstValue 
+//         tag2.textContent =  this.secondValue
+
+// }
+//     toSum(place,tag1,tag2) {
+//         this.toGetNumbers(tag1,tag2)
+//         return this.firstValue + this.secondValue
+//         this.toShowResult(place,total)
+//     }
+//     toSub(place,tag1,tag2) {
+//         this.toGetNumbers(tag1,tag2)
+//         return this.firstValue - this.secondValue
+//         this.toShowResult(place,total)
+//     }
+    
+//     toMult(place,tag1,tag2) {
+//         this.toGetNumbers(tag1,tag2)
+//         return this.firstValue * this.secondValue
+//         this.toShowResult(place,total)
+//     }
+//     toShare(place,tag1,tag2) {
+//         this.toGetNumbers(tag1,tag2)
+//         let total = this.firstValue / this.secondValue
+//         this.toShowResult(place,total)
+//     }
+    
+//     toShowResult(place,value) {
+//         // alert(`Результат операции: ${value}`)
+//         place.textContent = value;
+//     }
+    
+// }
+
+// const myCalc = new Calc(1);
+// console.log(myCalc)
+
+// btnPlus.addEventListener('click', () => myСalc.toSum(resul, first, second))
+// btnMinus.addEventListener('click', () => myСalc.toSub(resul, first, second))
+// btnMult.addEventListener('click', () => myСalc.toMult(resul, first, second))
+// btnShare.addEventListener('click', ()=> myСalc.toShare(resul, first, second))
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// // == task-2 == //
+// Створити класи Library та Book
+
+// 1. Клас Library буде описувати нашу бібліотеку книжок. Всі книжки будуть зберігатися в масиві.
+// Також цей клас буде мати такі методи:
+
+// - Метод buy - це метод що приймає аргументом обєкт книги і додає її в бібліотеку якщо її там ще немає. Якщо книга вже є показує повідомлення що книга вже куплена
+// - Метод sell - це метод що приймає аргументом назву книги і видаляє її з бібліотеки
+// - Метод addToFavourite - це метод що приймає аргументом назву книги і додає обєкт книги в список улюблених
+// - Метод removeFromFavourite - це метод що приймає назву книги і видаляє її з списку улюблених
+// - Гетер сountFavouriteBooks - це гетер що показує кількість книжок що додані в улюблені
+// - Гетер finishedBook - це гетер що містить колекцію всіх прочитаних книжок
+// - Метод totalCost - це метод що рахує вартість всіх книжок в бібліотеці
+
+// 2. Клас Book буде описувати окрему книгу. Кожна книга це буде обєкт з такими ключами
+// - author
+// - title
+// - price
+// - totalPages
+// - currentPage
+
+// Також цей клас буде мати такі методи:
+
+// - Метод read - це метод що приймає кількість сторінок що було прочитано і міняє значення currentPage
+// - Гетер bookProgres - гетер що переводить кількість прочитаних сторінок в відсотки
+// - Сетер bookProgres - сетер що переводить відсоток прочитаних сторінок в кількість
+// Клас Book приймає один аргумент - обєкт з парметрами книги. В середині класу використовувати деструктуризацію обєкта
+
+// class Library {
+//     constructor() {  
+//         this.books = [];
+//         this.favourite = [];
+//     }
+//     toBuy(book) {
+//         if (this.books.includes(book)) {
+//             alert('This book exsists')
+//         }
+//         this.books.push(book);
+//     }
+//     toSell(bookName) {
+//         this.books.forEach(({name}, idx) => {
+//             if (name === bookName) {
+//               this.books.splice(idx,1)
+//             }
+//         })
+//         return this.books
+//     }
+//     addToFavorit(bookName) {
+//         let favoritBook = this.books.find(({ name }) => name === bookName)
+//         this.favourite.push(favoritBook)
+//         return this.favourite
+//     }
+//     removeFromFavorite(bookName) {
+//         this.favourite.forEach(({ name }, idx) => {
+//             if (name === bookName) {
+//                 this.favourite.splice(idx, 1)
+//             }
+//         })
+//         return this.favourite
+//     }
+
+//     get countFavoriteBooks() {
+//         return this.favourite.length
+        
+//     }
+
+//     get finishedBook() {
+        
+//     }
+//     getTotalCost() {
+        
+//     }
+// }
+
+// const myLibrary = new Library();
+// console.log(myLibrary);
+// myLibrary.toBuy({ name: 'core JS', year: 2020 });
+// myLibrary.toSell('core JS');
+// myLibrary.toBuy({ name: 'React JS', year: 2020 });
+// myLibrary.toBuy({ name: 'Node JS', year: 2020 });
+
+
+
+// myLibrary.addToFavorit('React JS');
+// myLibrary.addToFavorit('Node JS');
+
+// myLibrary.removeFromFavorite('Node JS');
+
+
+
+// class Book {
+//     constructor(book) {
+//         this.author = book.author;
+//         this.title = book.title;
+//         this.price = book.price;
+//         this.totalPages = book.totalPages;
+//         this._currentPage = book.currentPage;
+// }
+    
+//     readBook(amount) {
+//         return this._currentPage = amount
+//     }
+    
+//      get bookProgres() {
+//     return this._currentPage * 100/ this.totalPages
+//   }
+
+//   set bookProgres(value) {
+//     this._currentPage = this.totalPages * value / 100;
+//   }
+
+// }
+
+
+// const book = { author: "Repeta", title: "JS", price: 2000, totalPages: 234, currentPage: 123 };
+// const bookItem = new Book(book)
+
+
+
+// console.dir(bookItem.redBook(250))
+// console.log(bookItem)
+// bookItem.bookProgres = 50
+// console.log(bookItem.bookProgres)
+// console.log(bookItem)
+
+
+
+
+// // == task-1 == //
+// Створити простенький калькулятор за допомогою класу.
+// Цей клас буде мати такі методи:
+// 1. Метод що запитує в користувача 2 числа
+// 2. Метод що додає ці числа
+// 3. Метод що віднімає ці числа
+// 4. Метод що перемножує ці числа
+// 5. Метод що ділить ці числа
+// 6. Метод що виводить результат арефметичної операції на екран в форматі `Результат операції ${value}`
+// цей метод запускаєтьсяв кінці кожного з методів 2-5
+// 7. Метод що додає в калькулятор новий функціонал (Приймає аргументом колбек в якому описаний новий метод)
+// 8. Передати в метод №7 колбек ф-ю що підносить числа в степінь
+// 9. Написати всі методи і перевірити чи вони працюють
+
+// class Calculator {
+
+//     constructor(a, b) {
+//         this.a = a
+//         this.b = b
+// }  
+
+//     addFigures() {
+//          const value = this.a + this.b
+//         return function result(){
+//             console.log(`Результат операції ${value}`)
+//         }
+//     }
+    
+//     deductFigures() {
+//         const value = this.a - this.b
+//         return function result(){
+//             console.log(`Результат операції ${value}`)
+//         }
+//     }
+//     multFigures() {
+//         const value = this.a * this.b
+//         return function result(){
+//             console.log(`Результат операції ${value}`)
+//         }
+        
+//      }
+//     divideFigures() {
+//         const value = this.a / this.b
+//         return function result(){
+//             console.log(`Результат операції ${value}`)
+//         }
+//     }
+
+//     elevateFigures() {
+//         const value = calculator.a ** calculator.b
+//         return value
+//     }
+
+//    data(cb) {
+//        let result = cb()
+//        console.log(result)
+
+// };
+
+// }
+
+// const calculator = new Calculator(6, 2)
+
+// const sum = calculator.addFigures()
+// const deduction = calculator.deductFigures()
+// const multiply = calculator.multFigures()
+// const divide = calculator.divideFigures()
+// const callback = calculator.elevateFigures
+// const elevate = calculator.data(callback);
+
+
+
+
+// sum()
+// deduction()
+// multiply()
+// divide ()
